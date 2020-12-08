@@ -28,8 +28,6 @@ def play(instructions):
         if inst == 'jmp':
             ptr = ptr + off
 
-        #print ('ptr=%d, inst=%s, off = %d, acc=%d' % (ptr, inst, off, acc))
-
     if (ptr >= len(instructions)):
         return (True, acc)
     else:
