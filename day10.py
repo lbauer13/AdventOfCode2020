@@ -26,10 +26,12 @@ for a in adapters:
 
 print ('Part 1 : %d' % (diffs[1] * diffs[3]))
 
-def comb(k, n):
+def arr(k, n):
+    # A(n,k) = n! / (n - k)! = n * (n - 1) * (n - 2) * ... * (n - k + 1)
     res = 1
     for i in range(0, k):
         res = res * (n - i)
+
     return int(res)
 
 # count how many combinations are still valid
@@ -41,8 +43,10 @@ def count_comb(offset):
 
     # (offset - 1) because last one cannot be removed, or else next diff will > 3
 
-    arr1 = comb(1, offset - 1)      # / fact(1)
-    arr2 = comb(2, offset - 1) / 2  # / fact(2)
+    # C(n,k) = A(n,k) / k!
+
+    arr1 = arr(1, offset - 1)      # / fact(1)
+    arr2 = arr(2, offset - 1) / 2  # / fact(2)
 
     # add 1 because we also need to return unchanged list (no removal)
     return int(arr1 + arr2 + 1)
