@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys,re
+import sys
 
 # read file, strip \n
 numbers = []
